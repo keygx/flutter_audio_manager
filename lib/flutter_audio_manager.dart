@@ -39,18 +39,19 @@ class FlutterAudioManager {
   static void Function()? _onInputChanged;
 
   static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+    final String version = await (_channel.invokeMethod('getPlatformVersion'));
     return version;
   }
 
   static Future<AudioInput> getCurrentOutput() async {
-    final List<dynamic> data = await _channel.invokeMethod('getCurrentOutput');
+    final List<dynamic> data =
+        await (_channel.invokeMethod('getCurrentOutput'));
     return AudioInput(data[0], int.parse(data[1]));
   }
 
   static Future<List<AudioInput>> getAvailableInputs() async {
     final List<dynamic> list =
-        await _channel.invokeMethod('getAvailableInputs');
+        await (_channel.invokeMethod('getAvailableInputs'));
 
     List<AudioInput> arr = [];
     list.forEach((data) {
@@ -60,19 +61,19 @@ class FlutterAudioManager {
   }
 
   static Future<bool> changeToSpeaker() async {
-    return await _channel.invokeMethod('changeToSpeaker');
+    return await (_channel.invokeMethod('changeToSpeaker'));
   }
 
   static Future<bool> changeToReceiver() async {
-    return await _channel.invokeMethod('changeToReceiver');
+    return await (_channel.invokeMethod('changeToReceiver'));
   }
 
   static Future<bool> changeToHeadphones() async {
-    return await _channel.invokeMethod('changeToHeadphones');
+    return await (_channel.invokeMethod('changeToHeadphones'));
   }
 
   static Future<bool> changeToBluetooth() async {
-    return await _channel.invokeMethod('changeToBluetooth');
+    return await (_channel.invokeMethod('changeToBluetooth'));
   }
 
   static void setListener(void Function() onInputChanged) {
