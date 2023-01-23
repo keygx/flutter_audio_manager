@@ -138,6 +138,9 @@ public class FlutterAudioManagerPlugin implements FlutterPlugin, MethodCallHandl
   private List<List<String>> getAvailableInputs() {
     List<List<String>> list = new ArrayList();
     list.add(Arrays.asList("Receiver", "1"));
+    if (audioManager.isSpeakerphoneOn()) {
+      list.add(Arrays.asList("Speaker", "2"));
+    }
     if (audioManager.isWiredHeadsetOn()) {
       list.add(Arrays.asList("Headset", "3"));
     }
