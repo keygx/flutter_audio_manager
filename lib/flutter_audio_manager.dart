@@ -76,7 +76,7 @@ class FlutterAudioManager {
     return await (_channel.invokeMethod('changeToBluetooth'));
   }
 
-  static void setListener(void Function() onInputChanged) {
+  static void setListener(void Function()? onInputChanged) {
     FlutterAudioManager._onInputChanged = onInputChanged;
     _channel.setMethodCallHandler(_methodHandle);
   }
